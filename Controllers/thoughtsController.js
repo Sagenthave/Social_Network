@@ -23,7 +23,7 @@ const thoughtController = {
             res.status(500).json(error);
         }
     },
-    //CREATE A THOUGHT
+    // (POST FUNCTION) CREATE A THOUGHT
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
@@ -32,7 +32,7 @@ const thoughtController = {
             res.status(500).json(error);
         }
     },
-    // UPDATE A THOUGHT
+    // (PUT FUNCTION) UPDATE A THOUGHT
     async updateThought(req, res) {
         try {
             const thought = await Thought.findByIdAndUpdate(req.params.thoughtID, req.body, {
@@ -47,7 +47,7 @@ const thoughtController = {
             res.status(500).json(error);
         }
     },
-    // DELETE A THOUGHT
+    // (DELETE FUNCTION) DELETE A THOUGHT
     async deleteThought(req, res) {
         try {
             const thought = await Thought.findByIdAndDelete({_id: req.params.thoughtId});
