@@ -13,11 +13,11 @@ const thoughtController = {
     // (GET FUNCTION) FINDING ONE THOUGHT
     async getOneThought (req, res) {
         try {
-            const thought = await Thought.findOne({_id: req.params.thoughId});
+            const thought = await Thought.findOne({_id: req.params.thoughtId});
             if (!thought) {
                 res.status(404).json({message: 'No thought found with this ID'});
             } else {
-                res.jjson(thought);
+                res.json(thought);
             }
         } catch (error) {
             res.status(500).json(error);
