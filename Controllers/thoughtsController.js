@@ -35,7 +35,7 @@ const thoughtController = {
     // (PUT FUNCTION) UPDATE A THOUGHT
     async updateThought(req, res) {
         try {
-            const thought = await Thought.findByIdAndUpdate(req.params.thoughtID, req.body, {
+            const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, req.body, {
                 new: true,
             });
             if (!thought) {
@@ -56,11 +56,24 @@ const thoughtController = {
             res.status(500).json(error);
         }
     },
-    // ADD A REACTION TO ONE THOUGHT
-
-
-
-    //DELETE A REACTION ASSCOIATED TO ONE THOUGHT
+    // ADD A REACTION TO ONE THOUGHT ?????
+    async createReaction(req, res) {
+        try {
+            const addReaction = await Thought.findOndAndUpdate(
+                {_id: req.params.thoughtId},
+                {
+                    $push: {
+                        reactions: req.body
+                    }
+                }, 
+                {new:true}
+            )
+            res.status(200).json(createReaction)
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    }
+    //DELETE A REACTION ASSCOIATED TO ONE THOUGHT ????
 }; 
 
 module.exports = thoughtController;
