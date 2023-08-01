@@ -20,7 +20,6 @@ connection.once('open', async () => {
     } catch (error) {
       console.log(error)
     }
-      // Log out the seed data to indicate what should appear in the database
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
