@@ -9,6 +9,7 @@ module.exports = user = [
     },
     {
         username: 'millie',
-        email: 'millie@gmail.com'
+        email: 'millie@gmail.com',
+        friends: '64c837ad102aaac33c576b1e'
     }
 ]

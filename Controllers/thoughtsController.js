@@ -13,7 +13,6 @@ const thoughtController = {
     // (GET FUNCTION) FINDING ONE THOUGHT
     async getOneThought (req, res) {
         try {
-            console.log("=======================================" + req.params.thoughtId)
             const thought = await Thought.findOne({_id: req.params.thoughtId});
             if (!thought) {
                 res.status(404).json({message: 'No thought found with this ID'});
@@ -60,6 +59,7 @@ const thoughtController = {
     // ADD A REACTION TO ONE THOUGHT ?????
     async addReaction(req, res) {
         try {
+            
             const addReaction = await Thought.findOndAndUpdate(
                 {_id: req.params.thoughtId},
                 {
@@ -68,7 +68,10 @@ const thoughtController = {
                     }
                 }, 
                 {new:true}
+
             )
+            
+
             res.status(200).json(addReaction)
         } catch (error) {
             res.status(500).json(error)

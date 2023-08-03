@@ -13,12 +13,14 @@ const userController = {
     // (GET FUNCTION) FINDING ONE USER
     async getOneUser (req, res) {
         try {
-            const user = await User.findOne({_id: req.params.UserId});
+            const user = await User.findOne({_id: req.params.userId});
+            
             if (!user) {
                 res.status(404).json({message: 'No user found with this ID'});
             } else {
                 res.json(user);
             }
+            
         } catch (error) {
             res.status(500).json(error);
         }
@@ -35,7 +37,7 @@ const userController = {
     // (PUT FUNCTION) UPDATE A USER
     async updateUser(req, res) {
         try {
-            const user = await User.findByIdAndUpdate(req.params.userID, req.body, {
+            const user = await User.findByIdAndUpdate(req.params.userId, req.body, {
                 new: true,
             });
             if (!user) {
@@ -59,9 +61,10 @@ const userController = {
     // ADD A FRIEND 
     async addFriend(req, res) {
         try {
+            console.log("new friends id " + req.params.friendId)
             const addFriend = await User.findByIdAndUpdate(
-                {_id: params.userId},
-                {$pull: {freinds: params.friendId}},
+                {_id: req.params.userId},
+                {$push: {friends: req.params.friendId}},
                 {new: true}
             )
             res.status(200).json(addFriend);
@@ -74,7 +77,7 @@ const userController = {
         try {
             const deleteFriend = await User.findOneAndUpdate(
                 {_id: params.userId},
-                {$pull: {freinds: params.friendId}},
+                {$pull: {friends: params.friendId}},
                 {new: true}
             );
             if (!deleteFriend) {
