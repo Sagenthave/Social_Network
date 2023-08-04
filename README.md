@@ -5,6 +5,8 @@
 - I WANT an API for my social network that uses a NoSQL database
 - SO THAT my website can handle large amounts of unstructured data
 
+![screenshot](/Screenshot%202023-08-03%20at%2010.52.22%20PM.png)
+
 # Acceptance Criteria
 - GIVEN a social network API
 - WHEN I enter the command to invoke the application
@@ -18,3 +20,8 @@
 
 # Credits
 - References (Mini-Project #28)
+- Krishna (Assistant Instructor): Debugging friend routes
+
+# Deployment 
+- GitHub: https://github.com/Sagenthave/Social_Network
+- Video Link: https://drive.google.com/file/d/1zTRxx4hRVJvzqPgh0TIVYUAFakQ0DP9R/view 
